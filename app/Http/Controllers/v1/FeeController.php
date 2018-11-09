@@ -4,9 +4,15 @@ namespace App\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\v1\FeeService;
 
 class FeeController extends Controller
 {
+    protected $fees;
+    public function __construct(FeeService $service)
+    {
+        $this->fees = $service;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class FeeController extends Controller
      */
     public function index()
     {
-        //
+        $data = $this->fees->getFees();
+        return response()->json($data);
     }
 
     /**

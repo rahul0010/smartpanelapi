@@ -4,9 +4,15 @@ namespace App\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\v1\SalaryService;
 
 class SalaryController extends Controller
 {
+    protected $salaries;
+    public function __construct(SalaryService $service)
+    {
+        $this->salaries = $service;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        //
+        $data = $this->salaries->getSalaries();
     }
 
     /**

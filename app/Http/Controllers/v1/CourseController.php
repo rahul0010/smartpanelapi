@@ -4,9 +4,15 @@ namespace App\Http\Controllers\v1;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Services\v1\CourseService;
 
 class CourseController extends Controller
 {
+    protected $courses;
+    public function __construct(CourseService $service)
+    {
+        $this->courses = $service;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $data = $this->courses->getCourses();
+        return response()->json($data);
     }
 
     /**

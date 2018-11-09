@@ -3,6 +3,7 @@
 namespace App\Providers\v1;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\v1;
 
 class FeeServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class FeeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(FeeService::class, function($app){
+            return new FeeService();
+        });
     }
 }

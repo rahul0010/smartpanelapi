@@ -176,6 +176,10 @@ return [
         App\Providers\v1\StudentServiceProvider::class,
         App\Providers\v1\FacultyServiceProvider::class,
         App\Providers\v1\BatchServiceProvider::class,
+        App\Providers\v1\CourseServiceProvider::class,
+        App\Providers\v1\FeeServiceProvider::class,
+        App\Providers\v1\SalaryServiceProvider::class,
+
     ],
 
     /*

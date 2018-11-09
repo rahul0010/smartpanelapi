@@ -3,6 +3,7 @@
 namespace App\Providers\v1;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\v1;
 
 class SalaryServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class SalaryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(SalayService::class, function ($app){
+            return new SalaryService();
+        });
     }
 }
