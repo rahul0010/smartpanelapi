@@ -20,12 +20,12 @@ class CreateStudentsTable extends Migration
             $table->string('last_name');
             $table->date('date_of_birth');
             $table->string('photo');
-            $table->decimal('phone',10);
+            $table->string('phone');
             $table->string('email');
             $table->longText('address');
-            $table->decimal('aadhar_no',12);
+            $table->decimal('aadhar_no',12,0);
             $table->integer('batch_id')->unsigned();
-            $table->date('admission_date')->useCurrent();
+            $table->date('admission_date');
             $table->integer('faculty_id')->unsigned();
             $table->timestamps();
 

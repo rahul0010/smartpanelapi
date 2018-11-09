@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SmartPanel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,6 +173,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\v1\StudentServiceProvider::class,
+        App\Providers\v1\FacultyServiceProvider::class,
+        App\Providers\v1\BatchServiceProvider::class,
     ],
 
     /*

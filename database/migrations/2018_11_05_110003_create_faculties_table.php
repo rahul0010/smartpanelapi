@@ -20,12 +20,12 @@ class CreateFacultiesTable extends Migration
             $table->string('last_name');
             $table->date('date_of_birth');
             $table->string('photo');
-            $table->decimal('phone',10);
+            $table->string('phone');
             $table->longText('address');
             $table->string('email');
             $table->string('designation');
-            $table->decimal('aadhar_no',12);
-            $table->date('joining_date')->useCurrent();
+            $table->decimal('aadhar_no',12,0);
+            $table->date('joining_date');
             $table->integer('salary');
             $table->timestamps();
         });
