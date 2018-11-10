@@ -18,7 +18,7 @@ class CreateFeeDetailsTable extends Migration
             $table->integer('fee_id')->unsigned();
             $table->integer('installment_no');
             $table->date('payment_date');
-            $table->date('paid_date')->useCurrent();
+            $table->date('paid_date');
             $table->integer('installment_amount');
             $table->integer('amount_paid');
             $table->integer('total_fee_paid');

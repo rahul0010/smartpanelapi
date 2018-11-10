@@ -53,7 +53,8 @@ class FeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->fees->getFee($id);
+        return response()->json($data);
     }
 
     /**

@@ -17,9 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('/v1/students', v1\StudentController::class);
-Route::resource('/v1/faculties', v1\FacultyController::class);
-Route::resource('/v1/batches', v1\BatchController::class);
-Route::resource('/v1/courses', v1\CourseController::class);
-Route::resource('/v1/fees', v1\FeeController::class);
-Route::resource('/v1/salaries', v1\SalaryController::class);
+Route::resource('/v1/students', v1\StudentController::class, [
+    'except' =>['create', 'edit']
+    ]);
+Route::resource('/v1/faculties', v1\FacultyController::class, [
+    'except' =>['create', 'edit']
+    ]);
+Route::resource('/v1/batches', v1\BatchController::class, [
+    'except' =>['create', 'edit']
+    ]);
+Route::resource('/v1/courses', v1\CourseController::class, [
+    'except' =>['create', 'edit']
+    ]);
+Route::resource('/v1/fees', v1\FeeController::class, [
+    'except' =>['create', 'edit']
+    ]);
+Route::resource('/v1/salaries', v1\SalaryController::class, [
+    'except' =>['create', 'edit']
+    ]);

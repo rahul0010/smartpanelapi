@@ -19,9 +19,13 @@ class DatabaseSeeder extends Seeder
         {
             factory(App\Student::class,100)->create();
         });
-        for($i=1;$i<=100;$i++)
+        for($i=1;$i<=1000;$i++)
         {
             factory(App\Fee::class,1)->create();
+        }
+        for($i=1;$i<=1000;$i++)
+        {
+            factory(App\FeeDetail::class,5)->create();
         }
     }
 }

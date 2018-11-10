@@ -42,7 +42,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->input();
     }
 
     /**
@@ -53,7 +53,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->students->getStudent($id);
+        return response()->json($data);
     }
 
     /**

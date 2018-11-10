@@ -53,7 +53,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->courses->getCourse($id);
+        return response()->json($data);
     }
 
     /**

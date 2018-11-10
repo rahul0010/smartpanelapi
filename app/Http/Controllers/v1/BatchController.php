@@ -53,7 +53,8 @@ class BatchController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = $this->batches->getBatch($id);
+        return response()->json($data);
     }
 
     /**
