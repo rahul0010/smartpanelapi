@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html
+{
+    width: 100%;
+    min-height: 100vh;
+}
+body
+{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: [full-start]  minmax(6rem, 1fr) [content-start] repeat(8,minmax(min-content,12rem)) [content-end] minmax(6rem,1fr);
+    background-color: $color-grey-light;
+}

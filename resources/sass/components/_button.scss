@@ -1,0 +1,75 @@
+.btn,
+btn:link,
+btn:visited
+{
+    text-decoration: none;
+    background: none;
+    border: none;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    color: $color-grey-dark-3;
+    border-radius: 300px;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.3);
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+}
+
+.btn:hover
+{
+    transform: scale(1.1);
+}
+
+.btn:active
+{
+    transform: scale(.9);
+}
+
+.btn--green
+{
+    background-color: $color-primary-dark;
+    color: $color-white;
+}
+
+.btn--red
+{
+    background-color: $color-secondary-dark;
+    color: $color-white;
+}
+
+
+.btn--blue
+{
+    background-color: $color-tertiary-light;
+    color: $color-white;
+}
+
+.btn-add
+{
+    text-decoration: none;
+    display: inline-block;
+    padding: 2.5rem;
+    height: 8rem;
+    width: 8rem;
+    color: $color-grey-light;
+    border-radius: 50%;
+    box-shadow: 0 2rem 4rem rgba(0,0,0,.2);
+    cursor: pointer;
+    outline: none;
+    transition: all .2s;
+    position: fixed;
+    z-index: 9999;
+    background-color: $color-tertiary-dark;
+    right: 5rem;
+    bottom: 5rem;
+
+    .plus
+    {
+        font-size: 5rem;
+    }
+
+    &>*
+    {
+        @include abs-center;
+    }
+}

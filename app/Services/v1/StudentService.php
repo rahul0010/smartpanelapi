@@ -12,13 +12,13 @@ class StudentService
     public  function getStudents()
     {
         // return Student::paginate(15);
-        // $data = [
-        //     'prev_page_url' =>Student::paginate(15)->previousPageUrl(),
-        //     'data' => $this->filterStudents(Student::paginate(15)),
-        //     'next_page_url'=>Student::paginate(15)->nextPageUrl()
-        // ];
-        // return $data;
-        return $this->filterStudents(Student::all());
+        $data = [
+            'prev_page_url' =>Student::paginate(15)->previousPageUrl(),
+            'data' => $this->filterStudents(Student::paginate(15)),
+            'next_page_url'=>Student::paginate(15)->nextPageUrl()
+        ];
+        return $data;
+        // return $this->filterStudents(Student::all());
     }
 
     public function getStudent($student_id)
@@ -33,7 +33,34 @@ class StudentService
         $student->middle_name = $req->input('middle_name');
         $student->last_name  = $req->input('last_name');
         $student->date_of_birth = date('Y-m-d', $req->input('date_of_birth'));
+        if($req->hasFile('photo'))
+        {
+            //Get filename with extension
+            $filename_with_extension = $req->file('photo')->getClientOriginalImage();
+            //Get file name
+            $filename = pathinfo($filename_with_extension, PATHINFO_FILENAME);
+            //get file extension
+            $exsention = $req->file('photo')->getClientOriginalExtention();
+            //File name to store
+            $filename_to_store = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $req->file('photo')->storeAd('public/photos',$filename_to_store);
+        }
+        else
+        {
+            $filename_to_store = 'noimage.jpg';
+        }
+        $student->photo = $filename_to_store;
+        $student->phone = $req->input('phone');
+        $student->email = $req->input('email');
+        $student ->address = $req->input('address');
+        $student->aadhar_no = $req->input('aadhar_no');
+        $student->date_of_admission = date('Y-m-d');
+        $student->batch_id = $req->input('batch_id');
+        $student->faculty_id = $req->input('faculty_id');
+        $student->save();
 
+        return dd($student->id);
     }
 
     protected function filterStudents($students)

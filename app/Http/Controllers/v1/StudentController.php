@@ -42,7 +42,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->input();
+        $data =  $this->students->addStudent($request);
+        return response()->json($data);
     }
 
     /**
